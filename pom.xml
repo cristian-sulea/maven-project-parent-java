@@ -45,9 +45,12 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
 
-    <property.plugin.source.skip>false</property.plugin.source.skip>
-    <property.plugin.javadoc.skip>false</property.plugin.javadoc.skip>
-    <property.plugin.checkstyle.skip>false</property.plugin.checkstyle.skip>
+    <skip.plugin.source>false</skip.plugin.source>
+    <skip.plugin.javadoc>false</skip.plugin.javadoc>
+    <skip.plugin.checkstyle>false</skip.plugin.checkstyle>
+
+    <version.dependency.commons-logging>1.1.1</version.dependency.commons-logging>
+    <version.dependency.junit>4.11</version.dependency.junit>
 
   </properties>
 
@@ -57,13 +60,13 @@
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
-      <version>1.1.1</version>
+      <version>${version.dependency.commons-logging}</version>
     </dependency>
 
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>${version.dependency.junit}</version>
       <scope>test</scope>
     </dependency>
 
@@ -78,10 +81,10 @@
         <artifactId>maven-source-plugin</artifactId>
         <version>2.2.1</version>
         <configuration>
-          <skipSource>${property.plugin.source.skip}</skipSource>
+          <skipSource>${skip.plugin.source}</skipSource>
           <archive>
             <manifestEntries>
-              <Built-By>${archive.manifest.built-by}</Built-By>
+              <Built-By>${text.archive.manifest.built-by}</Built-By>
             </manifestEntries>
           </archive>
         </configuration>
@@ -102,7 +105,7 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>2.10.3</version>
         <configuration>
-          <skip>${property.plugin.javadoc.skip}</skip>
+          <skip>${skip.plugin.javadoc}</skip>
         </configuration>
         <executions>
           <execution>
@@ -136,7 +139,7 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>2.12.1</version>
         <configuration>
-          <skip>${property.plugin.checkstyle.skip}</skip>
+          <skip>${skip.plugin.checkstyle}</skip>
         </configuration>
         <dependencies>
           <dependency>
