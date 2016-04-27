@@ -1,3 +1,8 @@
 language: java
 jdk:      oraclejdk8
-script:   ls -1 && rm -rf target && rm -rf /home/travis/.m2/repository/net/sulea && mvn install
+script:
+  - ls -1
+  - rm -rf target
+  - rm -rf /home/travis/.m2/repository/net/sulea
+  - mvn install
+  - ls -1
