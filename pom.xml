@@ -1,0 +1,154 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+
+  <parent>
+    <groupId>net.sulea.cristian</groupId>
+    <artifactId>maven-project-parent</artifactId>
+    <!-- <relativePath>../maven-project-parent/pom.xml</relativePath> -->
+    <version>1.1</version>
+  </parent>
+
+  <artifactId>maven-project-parent-java</artifactId>
+  <packaging>pom</packaging>
+
+
+  <version>1.0</version>
+
+
+  <name>Maven Project Parent for Java</name>
+  <description>The Maven Project Parent for Java POM provides all the common settings for all the Maven/Java projects.</description>
+  <url>http://cristian.sulea.net/projects/maven-project-parent-java/</url>
+
+  <inceptionYear>2016</inceptionYear>
+
+
+  <developers>
+    <developer>
+      <id>cristian.sulea</id>
+      <name>Cristian Sulea</name>
+      <email>cristian.sulea.79@gmail.com</email>
+      <url>http://cristian.sulea.net</url>
+    </developer>
+  </developers>
+
+
+  <scm>
+    <connection>scm:git:git@github.com:cristian-sulea/maven-project-parent-java.git</connection>
+    <developerConnection>scm:git:git@github.com:cristian-sulea/maven-project-parent-java.git</developerConnection>
+    <url>https://github.com/cristian-sulea/maven-project-parent-java</url>
+  </scm>
+
+
+  <properties>
+
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+    <property.plugin.source.skip>false</property.plugin.source.skip>
+    <property.plugin.javadoc.skip>false</property.plugin.javadoc.skip>
+    <property.plugin.checkstyle.skip>false</property.plugin.checkstyle.skip>
+
+  </properties>
+
+
+  <dependencies>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <configuration>
+          <skipSource>${property.plugin.source.skip}</skipSource>
+          <archive>
+            <manifestEntries>
+              <Built-By>${archive.manifest.built-by}</Built-By>
+            </manifestEntries>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+              <goal>test-jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.3</version>
+        <configuration>
+          <skip>${property.plugin.javadoc.skip}</skip>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.3</version>
+        <executions>
+          <execution>
+            <id>attach-descriptor</id>
+            <goals>
+              <goal>attach-descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <locales>en</locales>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.12.1</version>
+        <configuration>
+          <skip>${property.plugin.checkstyle.skip}</skip>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>net.sulea.cristian</groupId>
+            <artifactId>maven-checkstyle-rules</artifactId>
+            <version>1.0</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+
+    </plugins>
+  </build>
+
+
+</project>
