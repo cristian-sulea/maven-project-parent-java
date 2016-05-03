@@ -13,7 +13,7 @@
   <packaging>pom</packaging>
 
 
-  <version>1.1</version>
+  <version>1.2</version>
 
 
   <name>Maven Project Parent for Java</name>
@@ -45,12 +45,26 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
 
+    <version.dependency.commons-logging>1.1.1</version.dependency.commons-logging>
+    <version.dependency.junit>4.11</version.dependency.junit>
+
     <skip.plugin.source>false</skip.plugin.source>
     <skip.plugin.javadoc>false</skip.plugin.javadoc>
     <skip.plugin.checkstyle>false</skip.plugin.checkstyle>
+    <skip.plugin.findbugs>false</skip.plugin.findbugs>
 
-    <version.dependency.commons-logging>1.1.1</version.dependency.commons-logging>
-    <version.dependency.junit>4.11</version.dependency.junit>
+    <version.plugin.source>2.2.1</version.plugin.source>
+    <version.plugin.javadoc>2.10.3</version.plugin.javadoc>
+    <version.plugin.checkstyle>2.12.1</version.plugin.checkstyle>
+    <version.plugin.checkstyle.rules>1.0</version.plugin.checkstyle.rules>
+    <version.plugin.findbugs>3.0.1</version.plugin.findbugs>
+
+    <version.plugin.site>3.3</version.plugin.site>
+    <version.plugin.site.reports>2.7</version.plugin.site.reports>
+    <version.plugin.jxr>2.5</version.plugin.jxr>
+
+    <version.plugin.assembly>2.4</version.plugin.assembly>
+    <version.plugin.assembly.descriptors>1.3</version.plugin.assembly.descriptors>
 
   </properties>
 
@@ -79,7 +93,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
+        <version>${version.plugin.source}</version>
         <configuration>
           <skipSource>${skip.plugin.source}</skipSource>
           <archive>
@@ -103,9 +117,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.10.3</version>
+        <version>${version.plugin.javadoc}</version>
         <configuration>
           <skip>${skip.plugin.javadoc}</skip>
+          <additionalparam>-Xdoclint:none</additionalparam>
         </configuration>
         <executions>
           <execution>
@@ -119,8 +134,59 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${version.plugin.checkstyle}</version>
+        <configuration>
+          <skip>${skip.plugin.checkstyle}</skip>
+          <configLocation>checkstyle.xml</configLocation>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>net.sulea.cristian</groupId>
+            <artifactId>maven-checkstyle-rules</artifactId>
+            <version>${version.plugin.checkstyle.rules}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>test</id>
+            <phase>test</phase>
+            <goals>
+              <!-- <goal>check</goal> -->
+              <goal>checkstyle</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>${version.plugin.findbugs}</version>
+        <configuration>
+          <skip>${skip.plugin.findbugs}</skip>
+        </configuration>
+        <executions>
+          <execution>
+            <id>test</id>
+            <phase>test</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.6</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.3</version>
+        <version>${version.plugin.site}</version>
         <executions>
           <execution>
             <id>attach-descriptor</id>
@@ -134,24 +200,107 @@
         </configuration>
       </plugin>
 
+    </plugins>
+  </build>
+
+
+  <reporting>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>${version.plugin.site.reports}</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>index</report>
+              <report>summary</report>
+              <report>dependencies</report>
+              <!-- <report>project-team</report> -->
+              <report>license</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>2.12.1</version>
+        <version>${version.plugin.checkstyle}</version>
         <configuration>
           <skip>${skip.plugin.checkstyle}</skip>
+          <configLocation>checkstyle.xml</configLocation>
         </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>net.sulea.cristian</groupId>
-            <artifactId>maven-checkstyle-rules</artifactId>
-            <version>1.0</version>
-          </dependency>
-        </dependencies>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>checkstyle</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>${version.plugin.findbugs}</version>
+        <configuration>
+          <skip>${skip.plugin.findbugs}</skip>
+          <skipEmptyReport>false</skipEmptyReport>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>${version.plugin.jxr}</version>
       </plugin>
 
     </plugins>
-  </build>
+  </reporting>
+
+
+  <profiles>
+
+    <profile>
+
+      <id>dist</id>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>${version.plugin.assembly}</version>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+              </execution>
+            </executions>
+            <dependencies>
+              <dependency>
+                <groupId>net.sulea.cristian</groupId>
+                <artifactId>maven-assembly-descriptors</artifactId>
+                <version>${version.plugin.assembly.descriptors}</version>
+              </dependency>
+            </dependencies>
+            <configuration>
+              <descriptorRefs>
+                <descriptorRef>dist-bin</descriptorRef>
+                <descriptorRef>dist-src</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+
+    </profile>
+
+  </profiles>
 
 
 </project>
