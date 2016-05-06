@@ -371,7 +371,7 @@
           <plugin>
             <groupId>com.github.wvengen</groupId>
             <artifactId>proguard-maven-plugin</artifactId>
-            <version>2.0.7</version>
+            <version>2.0.11</version>
             <executions>
               <execution>
                 <phase>package</phase>
@@ -385,7 +385,7 @@
                 <lib>${java.home}/lib/rt.jar</lib>
                 <lib>${java.home}/lib/jce.jar</lib>
               </libs>
-              <proguardInclude>../../jatoo/jatoo/src/main/resources/proguard.conf</proguardInclude>
+              <proguardInclude>../maven-project-parent-java/resources/proguard.conf</proguardInclude>
               <addMavenDescriptor>true</addMavenDescriptor>
             </configuration>
           </plugin>
