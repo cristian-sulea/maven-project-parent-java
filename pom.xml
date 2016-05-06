@@ -364,7 +364,7 @@
 
     <profile>
 
-      <id>obfuscate</id>
+      <id>dist-obfuscated</id>
 
       <build>
         <plugins>
@@ -387,6 +387,32 @@
               </libs>
               <proguardInclude>../maven-project-parent-java/resources/proguard.conf</proguardInclude>
               <addMavenDescriptor>true</addMavenDescriptor>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>${version.plugin.assembly}</version>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+              </execution>
+            </executions>
+            <dependencies>
+              <dependency>
+                <groupId>net.sulea.cristian</groupId>
+                <artifactId>maven-assembly-descriptors</artifactId>
+                <version>${version.plugin.assembly.descriptors}</version>
+              </dependency>
+            </dependencies>
+            <configuration>
+              <descriptorRefs>
+                <descriptorRef>dist-bin</descriptorRef>
+                <descriptorRef>dist-src</descriptorRef>
+              </descriptorRefs>
             </configuration>
           </plugin>
         </plugins>
