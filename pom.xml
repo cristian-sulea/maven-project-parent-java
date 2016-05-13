@@ -13,7 +13,7 @@
   <packaging>pom</packaging>
 
 
-  <version>1.4.1</version>
+  <version>1.4.2</version>
 
 
   <name>Maven Project Parent for Java</name>
@@ -45,12 +45,15 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
 
+    <skip.plugin.surefire>false</skip.plugin.surefire>
+    <skip.plugin.surefire.report>false</skip.plugin.surefire.report>
     <skip.plugin.source>false</skip.plugin.source>
     <skip.plugin.javadoc>false</skip.plugin.javadoc>
     <skip.plugin.checkstyle>false</skip.plugin.checkstyle>
     <skip.plugin.findbugs>false</skip.plugin.findbugs>
     <skip.plugin.pmd>false</skip.plugin.pmd>
 
+    <version.plugin.surefire>2.19.1</version.plugin.surefire>
     <version.plugin.source>2.2.1</version.plugin.source>
     <version.plugin.javadoc>2.10.3</version.plugin.javadoc>
     <version.plugin.checkstyle>2.12.1</version.plugin.checkstyle>
@@ -60,7 +63,7 @@
 
     <version.plugin.site>3.3</version.plugin.site>
     <version.plugin.site.reports>2.7</version.plugin.site.reports>
-    <version.plugin.surefire>2.19.1</version.plugin.surefire>
+    <version.plugin.surefire.report>2.19.1</version.plugin.surefire.report>
     <version.plugin.jxr>2.5</version.plugin.jxr>
 
     <version.plugin.assembly>2.4</version.plugin.assembly>
@@ -92,6 +95,15 @@
 
   <build>
     <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${version.plugin.surefire}</version>
+        <configuration>
+          <skip>${skip.plugin.surefire}</skip>
+        </configuration>
+      </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -238,6 +250,15 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>${version.plugin.surefire.report}</version>
+        <configuration>
+          <skipSurefireReport>${skip.plugin.surefire.report}</skipSurefireReport>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>${version.plugin.javadoc}</version>
         <configuration>
@@ -297,12 +318,6 @@
             </reports>
           </reportSet>
         </reportSets>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>${version.plugin.surefire}</version>
       </plugin>
 
       <plugin>
