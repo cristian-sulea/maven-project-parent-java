@@ -13,7 +13,7 @@
   <packaging>pom</packaging>
 
 
-  <version>1.4.3</version>
+  <version>1.4.4</version>
 
 
   <name>Maven Project Parent for Java</name>
@@ -49,8 +49,11 @@
     <skip.plugin.surefire.report>false</skip.plugin.surefire.report>
     <skip.plugin.javadoc>false</skip.plugin.javadoc>
     <skip.plugin.checkstyle>false</skip.plugin.checkstyle>
+    <skip.plugin.checkstyle.report>false</skip.plugin.checkstyle.report>
     <skip.plugin.findbugs>false</skip.plugin.findbugs>
+    <skip.plugin.findbugs.report>false</skip.plugin.findbugs.report>
     <skip.plugin.pmd>false</skip.plugin.pmd>
+    <skip.plugin.pmd.report>false</skip.plugin.pmd.report>
 
     <version.plugin.source>2.2.1</version.plugin.source>
     <version.plugin.compiler>3.5.1</version.plugin.compiler>
@@ -290,16 +293,16 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${version.plugin.checkstyle}</version>
         <configuration>
-          <skip>${skip.plugin.checkstyle}</skip>
+          <skip>${skip.plugin.checkstyle.report}</skip>
           <configLocation>checkstyle.xml</configLocation>
         </configuration>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>checkstyle</report>
-            </reports>
-          </reportSet>
-        </reportSets>
+        <!-- <reportSets> -->
+        <!-- <reportSet> -->
+        <!-- <reports> -->
+        <!-- <report>checkstyle</report> -->
+        <!-- </reports> -->
+        <!-- </reportSet> -->
+        <!-- </reportSets> -->
       </plugin>
 
       <plugin>
@@ -307,7 +310,7 @@
         <artifactId>findbugs-maven-plugin</artifactId>
         <version>${version.plugin.findbugs}</version>
         <configuration>
-          <skip>${skip.plugin.findbugs}</skip>
+          <skip>${skip.plugin.findbugs.report}</skip>
           <!-- <skipEmptyReport>false</skipEmptyReport> -->
         </configuration>
       </plugin>
@@ -315,7 +318,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>${version.plugin.pmd}</version>
+        <version>${version.plugin.pmd.report}</version>
         <configuration>
           <skip>${skip.plugin.pmd}</skip>
           <!-- <skipEmptyReport>false</skipEmptyReport> -->
