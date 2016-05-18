@@ -229,7 +229,6 @@
         </configuration>
         <executions>
           <execution>
-            <phase>site</phase>
             <goals>
               <goal>attach-descriptor</goal>
             </goals>
