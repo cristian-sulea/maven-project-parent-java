@@ -1,0 +1,29 @@
+	-----
+	${project.description}
+	-----
+	Cristian Sulea
+	-----
+	2016-05-20
+	-----
+
+
+${project.name}
+	
+	${project.description}
+
+	Usage:
+
++--
+<parent>
+  <groupId>net.sulea.cristian</groupId>
+  <artifactId>maven-project-parent-java</artifactId>
+  <version>1.4.4</version>
+</parent>
++--
+
+	* {{{./pom.xml.html}pom.xml}}
+	
+	[]
+
+
+#parse("${folderSiteResourcesParent}/footer.apt.vm")
