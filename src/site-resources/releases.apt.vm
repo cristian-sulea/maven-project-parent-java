@@ -1,0 +1,58 @@
+
+* Releases
+
+	* <<Maven>>
+
++--
+<dependency>
+  <groupId>${project.groupId}</groupId>
+  <artifactId>${project.artifactId}</artifactId>
+  <version>${project.version}</version>
+</dependency>
++--
+	
+	* <<Binaries>>
+		
+		* {{{http://github.com/cristian-sulea/${project.artifactId}/releases/download/v.${project.version}/${project.artifactId}-${project.version}-bin.zip}${project.artifactId}-${project.version}-bin.zip}}
+		
+		* {{{http://github.com/cristian-sulea/${project.artifactId}/releases/download/v.${project.version}/${project.artifactId}-${project.version}-bin.tar.gz}${project.artifactId}-${project.version}-bin.tar.gz}}
+		
+		[]
+	
+	[]
+	
+	* <<Sources>>
+		
+		* {{{http://github.com/cristian-sulea/${project.artifactId}/releases/download/v.${project.version}/${project.artifactId}-${project.version}-src.zip}${project.artifactId}-${project.version}-src.zip}}
+		
+		* {{{http://github.com/cristian-sulea/${project.artifactId}/releases/download/v.${project.version}/${project.artifactId}-${project.version}-src.tar.gz}${project.artifactId}-${project.version}-src.tar.gz}}
+		
+		[]
+	
+	[]
+	
+	* <<SourceForge.net>>
+		
+		* {{{http://sourceforge.net/projects/${project.artifactId}/}Summary}}
+		
+		* {{{http://sourceforge.net/projects/${project.artifactId}/files/}Files}}
+		
+		* {{{http://sourceforge.net/p/${project.artifactId}/tickets/}Tickets}}
+		
+		* {{{http://sourceforge.net/p/${project.artifactId}/repository.git/}Git Repository}}
+		
+		[]
+	
+	[]
+	
+	* <<GitHub>>
+		
+		* {{{http://github.com/cristian-sulea/${project.artifactId}}Code}}
+		
+		* {{{http://github.com/cristian-sulea/${project.artifactId}/releases}Releases}}
+		
+		* {{{http://github.com/cristian-sulea/${project.artifactId}/issues}Issues}}
+		
+		[]
+	
+	[]

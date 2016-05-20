@@ -73,6 +73,8 @@
     <version.dependency.commons-logging>1.1.1</version.dependency.commons-logging>
     <version.dependency.junit>4.11</version.dependency.junit>
 
+    <folderSiteResourcesParentJava>../../../../maven-project-parent-java/src/site-resources/</folderSiteResourcesParentJava>
+
   </properties>
 
 
