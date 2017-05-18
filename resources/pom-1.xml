@@ -6,7 +6,7 @@
     <groupId>net.sulea.cristian</groupId>
     <artifactId>maven-project-parent</artifactId>
     <relativePath>../maven-project-parent/pom.xml</relativePath>
-    <version>2.1</version>
+    <version>2.0</version>
   </parent>
 
   <artifactId>maven-project-parent-java</artifactId>
@@ -21,7 +21,6 @@
   <url>http://cristian.sulea.net/projects/maven-project-parent-java/</url>
 
   <inceptionYear>2016</inceptionYear>
-
 
   <organization>
     <name>Cristian Sulea</name>
@@ -71,7 +70,7 @@
     <version.plugin.surefire>2.19.1</version.plugin.surefire>
     <version.plugin.javadoc>2.10.3</version.plugin.javadoc>
     <version.plugin.checkstyle>2.12.1</version.plugin.checkstyle>
-    <version.plugin.checkstyle.rules>2.0</version.plugin.checkstyle.rules>
+    <version.plugin.checkstyle.rules>1.2.0</version.plugin.checkstyle.rules>
     <version.plugin.findbugs>3.0.1</version.plugin.findbugs>
     <version.plugin.pmd>3.6</version.plugin.pmd>
 
@@ -79,10 +78,12 @@
     <version.plugin.jxr>2.5</version.plugin.jxr>
 
     <version.plugin.assembly>2.4</version.plugin.assembly>
-    <version.plugin.assembly.descriptors>2.0</version.plugin.assembly.descriptors>
+    <version.plugin.assembly.descriptors>1.4.0</version.plugin.assembly.descriptors>
 
     <version.dependency.commons-logging>1.1.1</version.dependency.commons-logging>
     <version.dependency.junit>4.11</version.dependency.junit>
+
+    <folderSiteResourcesParentJava>../../../../maven-project-parent-java/src/site-resources/</folderSiteResourcesParentJava>
 
   </properties>
 
@@ -302,15 +303,6 @@
 
 
   <profiles>
-
-    <profile>
-
-      <id>modules</id>
-
-      <modules>
-        <!-- <module>../maven-plugin-set-license</module> -->
-      </modules>
-    </profile>
 
     <profile>
 
