@@ -305,15 +305,6 @@
 
     <profile>
 
-      <id>modules</id>
-
-      <modules>
-        <!-- <module>../maven-plugin-set-license</module> -->
-      </modules>
-    </profile>
-
-    <profile>
-
       <id>dist</id>
 
       <build>
