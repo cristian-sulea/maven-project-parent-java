@@ -316,6 +316,23 @@
       <build>
         <plugins>
           <plugin>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>generate-sources</id>
+                <phase>generate-sources</phase>
+                <configuration>
+                  <tasks>
+                    <mkdir dir="target/assembly-include" />
+                  </tasks>
+                </configuration>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <version>${version.plugin.assembly}</version>
@@ -371,6 +388,23 @@
               <proguardInclude>../maven-project-parent-java/src/main/resources/proguard.conf</proguardInclude>
               <addMavenDescriptor>true</addMavenDescriptor>
             </configuration>
+          </plugin>
+          <plugin>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>generate-sources</id>
+                <phase>generate-sources</phase>
+                <configuration>
+                  <tasks>
+                    <mkdir dir="target/assembly-include" />
+                  </tasks>
+                </configuration>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+            </executions>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
