@@ -329,6 +329,27 @@
             </executions>
           </plugin>
           <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>copy-resources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>target/extra-resources</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>src/bin</directory>
+                      <filtering>true</filtering>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <version>${version.plugin.assembly}</version>
@@ -403,6 +424,27 @@
             </executions>
           </plugin>
           <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>copy-resources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>target/extra-resources</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>src/bin</directory>
+                      <filtering>true</filtering>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <version>${version.plugin.assembly}</version>
@@ -432,6 +474,44 @@
       </build>
     </profile>
 
+    <profile>
+
+      <id>launch4j</id>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.akathist.maven.plugins.launch4j</groupId>
+            <artifactId>launch4j-maven-plugin</artifactId>
+            <version>1.7.17</version>
+            <executions>
+              <execution>
+                <phase>compile</phase>
+                <goals>
+                  <goal>launch4j</goal>
+                </goals>
+                <configuration>
+                  <dontWrapJar>true</dontWrapJar>
+                  <headerType>gui</headerType>
+                  <outfile>target/extra-resources/${project.artifactId}.exe</outfile>
+                  <classPath>
+                    <mainClass>jatoo.imager.JaTooImager</mainClass>
+                    <preCp>%EXEDIR%/lib/*</preCp>
+                  </classPath>
+                  <jre>
+                    <minVersion>1.8.0</minVersion>
+                    <opts>
+                      <opt>-Dlaunch4j.exedir=%EXEDIR%</opt>
+                    </opts>
+                  </jre>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    
   </profiles>
 
 
