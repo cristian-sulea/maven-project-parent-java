@@ -493,9 +493,10 @@
                 <configuration>
                   <dontWrapJar>true</dontWrapJar>
                   <headerType>gui</headerType>
-                  <outfile>target/extra-resources/${project.artifactId}.exe</outfile>
+                  <outfile>target/extra-resources/${launch4j.fileName}</outfile>
+                  <icon>src/launch4j/icon.ico</icon>
                   <classPath>
-                    <mainClass>jatoo.imager.JaTooImager</mainClass>
+                    <mainClass>${launch4j.mainClass}</mainClass>
                     <preCp>%EXEDIR%/lib/*</preCp>
                   </classPath>
                   <jre>
