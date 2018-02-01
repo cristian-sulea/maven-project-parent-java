@@ -483,7 +483,7 @@
           <plugin>
             <groupId>com.akathist.maven.plugins.launch4j</groupId>
             <artifactId>launch4j-maven-plugin</artifactId>
-            <version>1.7.17</version>
+            <version>1.7.21</version>
             <executions>
               <execution>
                 <phase>compile</phase>
@@ -493,12 +493,13 @@
                 <configuration>
                   <dontWrapJar>true</dontWrapJar>
                   <headerType>gui</headerType>
-                  <outfile>target/extra-resources/${launch4j.fileName}</outfile>
+                  <outfile>target/extra-resources/${launch4j.fileName}.exe</outfile>
                   <icon>src/launch4j/icon.ico</icon>
                   <classPath>
                     <mainClass>${launch4j.mainClass}</mainClass>
                     <preCp>%EXEDIR%/lib/*</preCp>
                   </classPath>
+                  <jar>%EXEDIR%/lib/${project.build.finalName}.jar</jar>
                   <jre>
                     <minVersion>1.8.0</minVersion>
                     <opts>
