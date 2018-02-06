@@ -497,7 +497,7 @@
                   <dontWrapJar>true</dontWrapJar>
                   <headerType>gui</headerType>
                   <outfile>target/extra-resources/${launch4j.fileName}.exe</outfile>
-                  <icon>src/launch4j/icon.ico</icon>
+                  <icon>${launch4j.icon}</icon>
                   <singleInstance>
                     <mutexName>${launch4j.singleInstance.mutexName}</mutexName>
                     <windowTitle></windowTitle>
