@@ -345,6 +345,9 @@
                       <filtering>true</filtering>
                     </resource>
                   </resources>
+                  <nonFilteredFileExtensions>
+                    <nonFilteredFileExtension>exe</nonFilteredFileExtension>
+                  </nonFilteredFileExtensions>
                 </configuration>
               </execution>
             </executions>
@@ -495,6 +498,10 @@
                   <headerType>gui</headerType>
                   <outfile>target/extra-resources/${launch4j.fileName}.exe</outfile>
                   <icon>src/launch4j/icon.ico</icon>
+                  <singleInstance>
+                    <mutexName>${launch4j.singleInstance.mutexName}</mutexName>
+                    <windowTitle></windowTitle>
+                  </singleInstance>
                   <classPath>
                     <mainClass>${launch4j.mainClass}</mainClass>
                     <preCp>%EXEDIR%/lib/*</preCp>
@@ -513,7 +520,7 @@
         </plugins>
       </build>
     </profile>
-    
+
   </profiles>
 
 
