@@ -511,6 +511,7 @@
                     <minVersion>1.8.0</minVersion>
                     <opts>
                       <opt>-Dlaunch4j.exedir=%EXEDIR%</opt>
+                      <opt>-Dlogs.folder=%EXEDIR%\\logs</opt>
                     </opts>
                   </jre>
                 </configuration>
