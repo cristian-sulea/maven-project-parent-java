@@ -78,6 +78,8 @@
     <version.plugin.assembly>2.4</version.plugin.assembly>
     <version.plugin.assembly.descriptors>2.4</version.plugin.assembly.descriptors>
 
+    <version.plugin.resources>3.0.2</version.plugin.resources>
+
     <version.dependency.commons-logging>1.1.1</version.dependency.commons-logging>
     <version.dependency.junit>4.11</version.dependency.junit>
 
@@ -329,7 +331,9 @@
             </executions>
           </plugin>
           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-resources-plugin</artifactId>
+            <version>${version.plugin.resources}</version>
             <executions>
               <execution>
                 <id>copy-resources</id>
@@ -427,7 +431,9 @@
             </executions>
           </plugin>
           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-resources-plugin</artifactId>
+            <version>${version.plugin.resources}</version>
             <executions>
               <execution>
                 <id>copy-resources</id>
