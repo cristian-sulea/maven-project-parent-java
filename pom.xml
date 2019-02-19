@@ -5,15 +5,15 @@
   <parent>
     <groupId>net.sulea.cristian</groupId>
     <artifactId>maven-project-parent</artifactId>
-    <relativePath>../maven-project-parent/pom.xml</relativePath>
-    <version>2.3</version>
+<!--     <relativePath>../maven-project-parent/pom.xml</relativePath> -->
+    <version>2.4</version>
   </parent>
 
   <artifactId>maven-project-parent-java</artifactId>
   <packaging>pom</packaging>
 
 
-  <version>2.4</version>
+  <version>2.5</version>
 
 
   <name>Maven Project Parent for Java</name>
