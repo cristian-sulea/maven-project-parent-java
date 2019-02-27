@@ -346,7 +346,7 @@
                   <resources>
                     <resource>
                       <directory>src/bin</directory>
-                      <filtering>true</filtering>
+                      <filtering>false</filtering>
                     </resource>
                   </resources>
                   <nonFilteredFileExtensions>
