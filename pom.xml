@@ -6,14 +6,14 @@
     <groupId>net.sulea.cristian</groupId>
     <artifactId>maven-project-parent</artifactId>
 <!--     <relativePath>../maven-project-parent/pom.xml</relativePath> -->
-    <version>2.5</version>
+    <version>2.6</version>
   </parent>
 
   <artifactId>maven-project-parent-java</artifactId>
   <packaging>pom</packaging>
 
 
-  <version>2.6</version>
+  <version>2.7</version>
 
 
   <name>Maven Project Parent for Java</name>
@@ -68,7 +68,7 @@
     <version.plugin.javadoc>2.10.3</version.plugin.javadoc>
     <version.plugin.checkstyle>2.17</version.plugin.checkstyle>
     <version.plugin.checkstyle.library>7.7</version.plugin.checkstyle.library>
-    <version.plugin.checkstyle.rules>2.4</version.plugin.checkstyle.rules>
+    <version.plugin.checkstyle.rules>2.5</version.plugin.checkstyle.rules>
     <version.plugin.findbugs>3.0.1</version.plugin.findbugs>
     <version.plugin.pmd>3.6</version.plugin.pmd>
 
@@ -76,7 +76,7 @@
     <version.plugin.jxr>2.5</version.plugin.jxr>
 
     <version.plugin.assembly>2.4</version.plugin.assembly>
-    <version.plugin.assembly.descriptors>2.4</version.plugin.assembly.descriptors>
+    <version.plugin.assembly.descriptors>2.7</version.plugin.assembly.descriptors>
 
     <version.plugin.resources>3.0.2</version.plugin.resources>
 
